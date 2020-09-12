@@ -4,6 +4,10 @@
 apply plugin: 'com.android.library'
 apply from: './versioning.gradle'
 
+apply plugin: 'com.github.dcendents.android-maven'
+
+group='com.github.Reiszecke'
+
 android {
     compileSdkVersion 27
     buildToolsVersion '28.0.3'
@@ -67,6 +71,8 @@ dependencies {
     //    compile 'com.github.trikita:kv:e27a3127e3'
   //  implementation 'com.github.disappointedpig:waspdb:1.1.2'
     implementation 'com.github.rehacktive:waspdb:1.1.1'
+
+
 }
 
 
@@ -88,6 +94,7 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.5.4'
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
     }
 }
 
