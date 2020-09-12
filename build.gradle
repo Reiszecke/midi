@@ -1,5 +1,8 @@
+
+
+
 apply plugin: 'com.android.library'
-apply from: '../versioning.gradle'
+apply from: './versioning.gradle'
 
 android {
     compileSdkVersion 27
@@ -33,6 +36,21 @@ android {
     }
 }
 
+allprojects {
+    repositories {
+        mavenCentral()
+        maven {
+            url 'https://maven.google.com/'
+            name 'Google'
+
+        }
+        jcenter()
+        maven { url "https://jitpack.io" }
+
+
+    }
+}
+
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
@@ -40,6 +58,9 @@ dependencies {
 //    implementation 'com.android.support:support-compat:28.0.0'
     implementation 'com.android.support:support-compat:27.1.1'
     implementation 'org.greenrobot:eventbus:3.1.1'
+
+   // implementation 'com.github.greenrobot:EventBus:3.1.1'
+
     annotationProcessor 'org.greenrobot:eventbus-annotation-processor:3.1.1'
     implementation 'org.greenrobot:essentials:3.0.0-RC1'
     //    compile 'com.orhanobut:hawk:2.0.1'
@@ -54,3 +75,20 @@ android.libraryVariants.all { variant ->
         outputFileName = "midi-${variant.name}-${android.defaultConfig.versionName}.aar"
     }
 }
+
+buildscript {
+    repositories {
+        jcenter()
+      //  mavenCentral()
+        maven {
+            url 'https://maven.google.com/'
+            name 'Google'
+        }
+
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.5.4'
+    }
+}
+
+
