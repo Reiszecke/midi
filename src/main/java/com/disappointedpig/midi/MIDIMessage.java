@@ -135,6 +135,8 @@ public class MIDIMessage extends RTPMessage {
         buffer.write8(note);
         buffer.write8(velocity);
 
+        System.out.println("velocity written: "+velocity);
+
 
         return buffer.toByteArray();
     }
